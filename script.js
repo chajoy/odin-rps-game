@@ -50,5 +50,7 @@ const playRound = function (playerChoice, computerChoice)
 //Temporary play function to call playRound with getPlayerChoice and getComputerChoice
 const play = function ()
 {
-    return playRound(getPlayerChoice(), getComputerChoice());
+    let playerChoice = getPlayerChoice();
+    let computerChoice = getComputerChoice();
+    return playRound(playerChoice, computerChoice);
 }
