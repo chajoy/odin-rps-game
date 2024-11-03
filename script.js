@@ -29,28 +29,50 @@ const playRound = function (playerChoice, computerChoice)
     if(playerChoice === computerChoice)
     {
         result = `draw`;
+        playerScore++;
+        computerScore++;
     }else if(playerChoice === `paper` && computerChoice === `scissors` ||
             playerChoice === `rock` && computerChoice === `paper` ||
             playerChoice === `scissors` && computerChoice === `rock`)
     {
         result = `lose`;
+        computerScore++;
     }else if(playerChoice === `paper` && computerChoice === `rock` ||
             playerChoice === `rock` && computerChoice === `scissors` ||
             playerChoice === `scissors` && computerChoice === `paper`)
     {
         result = `win`;
+        playerScore++;
     }else
     {
         console.error(`Error: could not complete round`);
     }
 
-    return `You ${result}`;
+    return `You ${result}, Player: ${playerScore}, Computer: ${computerScore}`;
 }
 
-//Temporary play function to call playRound with getPlayerChoice and getComputerChoice
-const play = function ()
+//Player can choose custom round amount or default to 3
+const playGame = function (maxRounds = 3)
 {
-    let playerChoice = getPlayerChoice();
-    let computerChoice = getComputerChoice();
-    return playRound(playerChoice, computerChoice);
+    for(x = 0; x < maxRounds; x++)
+    {
+        let playerChoice = getPlayerChoice();
+        let computerChoice = getComputerChoice();
+        console.log(playRound(playerChoice, computerChoice));
+    }
+
+    let result;
+    
+    if(playerScore === computerScore)
+    {
+        result = `draw`;
+    }else if(playerScore > computerScore)
+    {
+        result = `win`;
+    }else
+    {
+        result = `lose`;
+    }
+
+    return `You ${result}!, Player: ${playerScore}, Computer: ${computerScore}`;
 }
