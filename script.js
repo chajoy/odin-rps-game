@@ -1,3 +1,5 @@
+const playerScore_display = document.getElementById(`playerScore`);
+const computerScore_display = document.getElementById(`computerScore`);
 const output = document.getElementById(`output`);
 const btn_container = document.getElementById(`btn-container`);
 
@@ -32,26 +34,34 @@ const playRound = function (playerChoice, computerChoice)
     if(playerChoice === computerChoice)
     {
         result = `draw`;
-        playerScore++;
-        computerScore++;
+        updateScore(1,1);
     }else if(playerChoice === `paper` && computerChoice === `scissors` ||
             playerChoice === `rock` && computerChoice === `paper` ||
             playerChoice === `scissors` && computerChoice === `rock`)
     {
         result = `lose`;
-        computerScore++;
+        updateScore(0,1);
     }else if(playerChoice === `paper` && computerChoice === `rock` ||
             playerChoice === `rock` && computerChoice === `scissors` ||
             playerChoice === `scissors` && computerChoice === `paper`)
     {
         result = `win`;
-        playerScore++;
+        updateScore(1,0);
     }else
     {
         output.textContent = `Error: could not complete round`;
     }
 
     return `You ${result}, Player: ${playerScore}, Computer: ${computerScore}`;
+}
+
+const updateScore = function (player, computer)
+{
+    playerScore += player;
+    computerScore += computer;
+
+    playerScore_display.textContent = playerScore;
+    computerScore_display.textContent = computerScore;
 }
 
 btn_container.addEventListener(`click`, (event) => 
@@ -75,3 +85,4 @@ btn_container.addEventListener(`click`, (event) =>
             break;
     }
 })
+
