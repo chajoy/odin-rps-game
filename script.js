@@ -1,3 +1,4 @@
+const output = document.getElementById(`output`);
 const btn_container = document.getElementById(`btn-container`);
 
 let playerScore = 0,
@@ -47,7 +48,7 @@ const playRound = function (playerChoice, computerChoice)
         playerScore++;
     }else
     {
-        console.error(`Error: could not complete round`);
+        output.textContent = `Error: could not complete round`;
     }
 
     return `You ${result}, Player: ${playerScore}, Computer: ${computerScore}`;
@@ -59,15 +60,15 @@ btn_container.addEventListener(`click`, (event) =>
     switch(target.id)
     {
         case `btn-rock`:
-            console.log(playRound(`rock`, getComputerChoice()));
+            output.textContent = playRound(`rock`, getComputerChoice());
             break;
         
         case `btn-paper`:
-            console.log(playRound(`paper`, getComputerChoice()));
+            output.textContent = playRound(`paper`, getComputerChoice());
             break;
         
         case `btn-scissors`:
-            console.log(playRound(`scissors`, getComputerChoice()));
+            output.textContent = playRound(`scissors`, getComputerChoice());
             break;
 
         default:
