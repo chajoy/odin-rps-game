@@ -1,3 +1,5 @@
+const btn_container = document.getElementById(`btn-container`);
+
 let playerScore = 0,
     computerScore = 0;
 
@@ -51,28 +53,24 @@ const playRound = function (playerChoice, computerChoice)
     return `You ${result}, Player: ${playerScore}, Computer: ${computerScore}`;
 }
 
-//Player can choose custom round amount or default to 3
-const playGame = function (maxRounds = 3)
+btn_container.addEventListener(`click`, (event) => 
 {
-    for(x = 0; x < maxRounds; x++)
+    let target = event.target;
+    switch(target.id)
     {
-        let playerChoice = getPlayerChoice();
-        let computerChoice = getComputerChoice();
-        console.log(playRound(playerChoice, computerChoice));
-    }
+        case `btn-rock`:
+            console.log(playRound(`rock`, getComputerChoice()));
+            break;
+        
+        case `btn-paper`:
+            console.log(playRound(`paper`, getComputerChoice()));
+            break;
+        
+        case `btn-scissors`:
+            console.log(playRound(`scissors`, getComputerChoice()));
+            break;
 
-    let result;
-    
-    if(playerScore === computerScore)
-    {
-        result = `draw`;
-    }else if(playerScore > computerScore)
-    {
-        result = `win`;
-    }else
-    {
-        result = `lose`;
+        default:
+            break;
     }
-
-    return `You ${result}!, Player: ${playerScore}, Computer: ${computerScore}`;
-}
+})
