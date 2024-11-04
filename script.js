@@ -3,6 +3,7 @@ const computerScore_display = document.getElementById(`computerScore`);
 const output = document.getElementById(`output`);
 const btn_container = document.getElementById(`btn-container`);
 const games_won_text = document.getElementById(`games-won`);
+const buttons = document.querySelectorAll(`button`);
 
 let playerScore = 0,
     computerScore = 0;
@@ -17,21 +18,13 @@ const getComputerChoice = function ()
     return responses[Math.floor(Math.random() * 3)];
 }
 
-//Returns player choice. Asks for input until it's either `rock`,`paper` or `scissors`
-const getPlayerChoice = function () 
-{
-    let input;
-
-    do{
-        input = prompt(`Enter Choice:`);
-        input = input.toLowerCase();
-    }while(!responses.includes(input));
-
-    return input;
-}
-
 const playRound = function (playerChoice, computerChoice)
 {
+    Array.from(buttons).forEach((element) =>
+        {
+            element.style.backgroundColor = "";
+        })
+
     let result;
 
     if(playerChoice === computerChoice)
@@ -53,6 +46,14 @@ const playRound = function (playerChoice, computerChoice)
     {
         return `Error: could not complete round`;
     }
+
+    Array.from(buttons).forEach((element) =>
+    {
+        if(element.getAttribute(`id`) === computerChoice)
+        {
+            element.style.backgroundColor = `#DB3B3E`;
+        }
+    })
 
     if(playerScore != 5 && computerScore != 5)
     {
@@ -99,15 +100,15 @@ btn_container.addEventListener(`click`, (event) =>
     let target = event.target;
     switch(target.id)
     {
-        case `btn-rock`:
+        case `rock`:
             output.textContent = playRound(`rock`, getComputerChoice());
             break;
         
-        case `btn-paper`:
+        case `paper`:
             output.textContent = playRound(`paper`, getComputerChoice());
             break;
         
-        case `btn-scissors`:
+        case `scissors`:
             output.textContent = playRound(`scissors`, getComputerChoice());
             break;
 
