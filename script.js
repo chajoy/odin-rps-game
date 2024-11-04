@@ -34,7 +34,6 @@ const playRound = function (playerChoice, computerChoice)
     if(playerChoice === computerChoice)
     {
         result = `draw`;
-        updateScore(1,1);
     }else if(playerChoice === `paper` && computerChoice === `scissors` ||
             playerChoice === `rock` && computerChoice === `paper` ||
             playerChoice === `scissors` && computerChoice === `rock`)
