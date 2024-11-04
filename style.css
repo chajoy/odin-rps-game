@@ -80,8 +80,8 @@ header p
 
 .game-container
 {
-    min-height: 300px;
-    min-width: 500px;
+    height: 300px;
+    width: 500px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     outline: 5px solid rgb(196, 196, 196);
@@ -107,9 +107,10 @@ header p
     color: white;
     border: none;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     width: 120px;
-    outline: 2px solid #2c5c65;
+    outline: 5px solid #2c5c65;
+    margin: 0 10px;
 }
 
 .game-container .btn-container button:hover

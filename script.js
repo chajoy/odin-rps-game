@@ -23,6 +23,7 @@ const playRound = function (playerChoice, computerChoice)
     Array.from(buttons).forEach((element) =>
         {
             element.style.backgroundColor = "";
+            element.style.outline = "";
         })
 
     let result;
@@ -52,6 +53,7 @@ const playRound = function (playerChoice, computerChoice)
         if(element.getAttribute(`id`) === computerChoice)
         {
             element.style.backgroundColor = `#DB3B3E`;
+            element.style.outline = `5px solid #8C2628`;
         }
     })
 
