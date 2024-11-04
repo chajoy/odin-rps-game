@@ -49,12 +49,36 @@ const playRound = function (playerChoice, computerChoice)
         updateScore(1,0);
     }else
     {
-        output.textContent = `Error: could not complete round`;
+        return `Error: could not complete round`;
     }
 
-    return `You ${result}, Player: ${playerScore}, Computer: ${computerScore}`;
+    if(playerScore != 5 && computerScore != 5)
+    {
+        console.log(playerScore);
+        return `You ${result}, Player: ${playerScore}, Computer: ${computerScore}`;
+    }
+    else if(playerScore == 5)
+    {
+        console.log(`lose`);
+        let resultString = `Game Over! You Win!, Player: ${playerScore}, Computer: ${computerScore}`;
+        computerScore = 0;
+        playerScore = 0;
+        return resultString;
+    }
+    else if(computerScore == 5)
+    {
+        console.log(`win`);
+        let resultString = `Game Over! You Lose!, Player: ${playerScore}, Computer: ${computerScore}`;
+        computerScore = 0;
+        playerScore = 0;
+        return resultString;
+    }
+    else{
+        return `Error: could not complete game`;
+    }
 }
 
+//Updates score variables and updates display of score
 const updateScore = function (player, computer)
 {
     playerScore += player;
