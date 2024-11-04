@@ -54,12 +54,10 @@ const playRound = function (playerChoice, computerChoice)
 
     if(playerScore != 5 && computerScore != 5)
     {
-        console.log(playerScore);
         return `You ${result}, Player: ${playerScore}, Computer: ${computerScore}`;
     }
     else if(playerScore == 5)
     {
-        console.log(`lose`);
         let resultString = `Game Over! You Win!, Player: ${playerScore}, Computer: ${computerScore}`;
         computerScore = 0;
         playerScore = 0;
@@ -67,7 +65,6 @@ const playRound = function (playerChoice, computerChoice)
     }
     else if(computerScore == 5)
     {
-        console.log(`win`);
         let resultString = `Game Over! You Lose!, Player: ${playerScore}, Computer: ${computerScore}`;
         computerScore = 0;
         playerScore = 0;
