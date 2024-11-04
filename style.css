@@ -14,6 +14,7 @@
 }
 
 body {
+    color: white;
     -webkit-font-smoothing: antialiased;
     font-family: "Roboto", sans-serif;
     display: flex;
@@ -69,7 +70,6 @@ h6 {
 header
 {
     text-align: center;
-    color: white;
 }
 
 header p
@@ -116,4 +116,13 @@ header p
 {
     cursor: pointer;
     background-color: #4796a4;
+}
+
+.games-won
+{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-weight: bold;
 }

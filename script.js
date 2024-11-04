@@ -2,9 +2,12 @@ const playerScore_display = document.getElementById(`playerScore`);
 const computerScore_display = document.getElementById(`computerScore`);
 const output = document.getElementById(`output`);
 const btn_container = document.getElementById(`btn-container`);
+const games_won_text = document.getElementById(`games-won`);
 
 let playerScore = 0,
     computerScore = 0;
+
+let games_won = 0;
 
 const responses = [`rock`, `paper`, `scissors`];
 
@@ -60,6 +63,7 @@ const playRound = function (playerChoice, computerChoice)
         let resultString = `Game Over! You Win!, Player: ${playerScore}, Computer: ${computerScore}`;
         computerScore = 0;
         playerScore = 0;
+        updateGamesWon();
         return resultString;
     }
     else if(computerScore == 5)
@@ -72,6 +76,12 @@ const playRound = function (playerChoice, computerChoice)
     else{
         return `Error: could not complete game`;
     }
+}
+
+const updateGamesWon = function (player)
+{
+    games_won++;
+    games_won_text.textContent = games_won;
 }
 
 //Updates score variables and updates display of score
